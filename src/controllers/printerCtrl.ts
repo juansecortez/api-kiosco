@@ -51,7 +51,8 @@ addPrinter: async (req: Request, res: Response) => {
       const printerName = req.params.printerName;
 
       // Usamos el comando correcto para añadir la impresora
-      await runPowershellCommand(`Add-Printer -ConnectionName \\\\${ip}\\${printerName}`);
+      await runPowershellCommand(`Restart-Service -Name Spooler`);
+      await runPowershellCommand(`Start-Sleep -Seconds 2; Add-Printer -ConnectionName \\\\${ip}\\${printerName}`);
 
       res.json({
           message: "Impresora añadida con éxito"
