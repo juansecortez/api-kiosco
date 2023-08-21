@@ -1,0 +1,41 @@
+{
+  "name": "api-kiosco",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/morgan": "^1.9.4",
+    "@types/mssql": "^8.1.2",
+    "@types/nodemailer": "^6.4.9",
+    "ts-node-dev": "^2.0.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@types/node-powershell": "^4.0.1",
+    "axios": "^1.3.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
+    "msnodesqlv8": "^3.1.0",
+    "mssql": "^9.1.1",
+    "node-powershell": "^5.0.1",
+    "nodemailer": "^6.9.4",
+    "tedious": "^16.0.0"
+  }
+}
