@@ -8,6 +8,9 @@ import recurzoRouter from "./recurzoRouter";
 import solicitudRouter from "./solicitudRouter";
 import zonasUbicacionRouter from "./zonasUbicacionRouter";
 import printerRouter from "./printerRouter";
+import issueRouter from "./issueRouter";
+import externosRouter from "./externosRouter";
+import deviceRouter from "./deviceRouter";
 
 const routes = {
   authRouter,
@@ -19,7 +22,10 @@ const routes = {
   recurzoRouter,
   solicitudRouter,
   zonasUbicacionRouter,
-  printerRouter
+  printerRouter,
+  issueRouter,
+  externosRouter,
+  deviceRouter
 };
 
 export default routes;

@@ -20,6 +20,11 @@ export interface IUserData {
   direcciones: [];
   role: string;
 }
+export interface IIssue {
+  id?: number; // El signo de interrogación indica que es opcional, ya que cuando agregas un nuevo issue, el ID se genera automáticamente.
+  nombre: string;
+  tipo_id: number;
+}
 export interface IReqAuth extends Request {
   user?: IUserData;
 }

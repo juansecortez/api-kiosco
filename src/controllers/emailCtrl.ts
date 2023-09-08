@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import nodemailer from 'nodemailer';
 
-const sendEmail = async (to: string, cc: string, title: string, txt: string, url: string) => {
+export const sendEmail = async (to: string, cc: string, title: string, txt: string, url: string) => {
   const SENDER_EMAIL = `${process.env.SENDER_EMAIL_ADDRESS}`;
   const SMTP_HOST = `${process.env.SMTP_HOST}`;
   var transport = nodemailer.createTransport({

@@ -67,6 +67,28 @@ const zonasUbicacionCtrl = {
   },
 
   // Ubicacion
+  listUbicacionesByZona: async (req: Request, res: Response) => {
+    const { zonaNombre } = req.params;
+    try {
+      const pool = await getconectionKiosco();
+      if (pool === false) return res.status(400).json({ message: "La base de datos no responde." });
+  
+      const result = await pool.request()
+        .input('zonaNombre', sql.NVarChar, zonaNombre)
+        .query(`
+          SELECT U.ID, U.Nombre + ' - ' + Z.Nombre AS UbicacionConZona
+          FROM Ubicacion U
+          JOIN Zonas Z ON U.ZonaID = Z.ID
+          WHERE Z.Nombre = @zonaNombre
+        `);
+  
+      res.json(result.recordset);
+    } catch (error: any) {
+      console.log({ message: error.message });
+      return res.status(500).json({ message: "El servidor no responde" });
+    }
+  }
+,  
   addUbicacion: async (req: Request, res: Response) => {
     const { nombre, zonaID } = req.body;
     try {
@@ -85,7 +107,9 @@ const zonasUbicacionCtrl = {
     }
   },
   editUbicacion: async (req: Request, res: Response) => {
-    const { id, nombre, zonaID } = req.body;
+    const id = req.params.id;  // Cambio aquí
+    const { nombre, zonaID } = req.body;
+
     try {
       const pool = await getconectionKiosco();
       if (pool === false) return res.status(400).json({ message: "La base de datos no responde." });
@@ -93,15 +117,15 @@ const zonasUbicacionCtrl = {
       await pool.request()
         .input('id', sql.Int, id)
         .input('nombre', sql.NVarChar, nombre)
-        .input('zonaID', sql.Int, zonaID)
-        .query('UPDATE Ubicacion SET Nombre = @nombre, ZonaID = @zonaID WHERE ID = @id');
+        
+        .query('UPDATE Ubicacion SET Nombre = @nombre WHERE ID = @id');
 
       res.json({ message: 'Ubicación actualizada correctamente' });
     } catch (error: any) {
       console.log({ message: error.message });
       return res.status(500).json({ message: "El servidor no responde" });
     }
-  },
+},
   deleteUbicacion: async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
