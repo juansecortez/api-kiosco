@@ -62,7 +62,7 @@ export const checkAndSendEmails = async () => {
         if (sendBaseEmail) {
           console.log(`Intentando enviar correo ...`);
           await sendEmail(
-            "residente10@pcolorada.com",
+            "ezamora@pcolorada.com",
             "", // CC - Ajusta según tu necesidad
             "Notificación Importante",
             `Se aproxima a fecha de actualizacion para el externo ${externo.NOMBRES}el antivirus vence en: ${formattedDateAntivirus} y el pedido en ${formattedDatePedido}.  Accede a el Kiosco y Actualizala.`,
@@ -74,7 +74,7 @@ export const checkAndSendEmails = async () => {
         if (sendAvisoEmail) {
           console.log(`Intentando enviar correo ...`);
           await sendEmail(
-            "residente10@pcolorada.com",
+            "ezamora@pcolorada.com",
             "",
             "Aviso Importante",
             `Se aproxima a fecha de actualizacion para el externo ${externo.NOMBRES}, y el pedido fechado el ${formattedDatePedido}  se vencerá antes que el antivirus fechado en ${formattedDateAntivirus} . Accede a el Kiosco y Actualizala.`,

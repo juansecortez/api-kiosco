@@ -39,6 +39,8 @@ export interface IUserDirection extends IUser {
 export interface IRecurzo {
   nombre: string,
   descripcion: string,
+  nivel: number,
+  jerarquia: number,
   precio: number,
   tipo_id: number
 }

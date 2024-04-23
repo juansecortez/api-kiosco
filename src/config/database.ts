@@ -54,3 +54,27 @@ export async function getconectionKiosco1() {
     return false;
   }
 }
+  const dbSettingsKiosco2 = {
+    user: `${process.env.DB_USER}`,
+    password: `${process.env.DB_PASSWORD}`,
+    server: `${process.env.DB_SERVER}`,
+    database: `${process.env.DB_NAME2}`,
+    options: {
+      encrypt: true,
+      enableArithAbort: true,
+      trustedConnection: true,
+      trustServerCertificate: true,
+    },
+  };
+  export async function getconectionKiosco2() {
+    try {
+      const pool = new sql.ConnectionPool(dbSettingsKiosco2);
+      await pool.connect();
+      console.log(`Conectado a la base de datos ${process.env.DB_NAME2}`);
+      return pool;
+    } catch (error) {
+      console.error("Error al conectar a la base de datos", error);
+      console.log("Error al conectar a la base de datos", error);
+      return false;
+    }
+}

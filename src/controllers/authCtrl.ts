@@ -35,7 +35,7 @@ const authCtrl = {
       const params = new URLSearchParams();
       params.append("usuarioid", decoded.USUARIOID);
       const result = await axios.post(
-        "http://vwebdelta/WebDataSap/Service1.asmx/EXISTE_USUARIO",
+        "http://vwebgama:2023/Service1.asmx/EXISTE_USUARIO",
         params
       );
       if (typeof result.data === "string") {
@@ -81,7 +81,7 @@ const authCtrl = {
       // Se asigna el rol de usuario normal por default
       let role = "Normal";
       // Se asigna el rol de administrador si el usuario se encuentra en el array
-      const adminUsers = ["galvarez", "gquiteno", "ddoval", "ezamora"];
+      const adminUsers = ["galvarez", "gquiteno", "ddoval", "ezamora", "se.soporteti8", ];
       if (adminUsers.includes(username)) {
         role = "Administrador";
       } else {
@@ -94,7 +94,7 @@ const authCtrl = {
       params.append("usuario", username);
       params.append("contrasena", password);
       const result = await axios.post(
-        "http://vwebdelta/WebDataSap/Service1.asmx/VALIDA_USUARIO",
+        "http://vwebgama:2023/Service1.asmx/VALIDA_USUARIO",
         params
       );
 

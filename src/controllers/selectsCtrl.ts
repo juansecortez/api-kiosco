@@ -19,8 +19,8 @@ const selectsCtrl = {
     }
   },
   getRecurzosByType: async (req: Request, res: Response) => {
-    const { tipo_id } = req.params;
-
+    const { tipo_id, jerarquia } = req.params;
+  
     try {
       const pool = await getconectionKiosco();
       if (pool === false) {
@@ -28,13 +28,14 @@ const selectsCtrl = {
           message: "La base de datos no responde.",
         });
       }
-
+  
       const result = await pool.request()
         .input('tipo_id', sql.Int, tipo_id)
+        .input('jerarquia', sql.Int, jerarquia) // Agregar jerarquia como parámetro
         .execute('sp_getResourcesByType')
-
+  
       res.json(result.recordset);
-
+  
     } catch (error: any) {
       console.log({ message: error.message });
       return res.status(500).json({
@@ -42,6 +43,7 @@ const selectsCtrl = {
       });
     }
   },
+  
   management: async (req: Request, res: Response) => {
     const consultaSql = `SELECT * FROM catalogo_gerencia`;
     try {

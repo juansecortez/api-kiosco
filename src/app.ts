@@ -24,7 +24,8 @@ app.use(
       "http://vwebgama:4002",
       "http://vwebgama:4001",
       "http://vwebgama:8093",
-      ""
+      "http://vwebdelta",
+      "https://autorizaitk.pcolorada.com/"
     ],
     credentials: true,
   })

@@ -20,5 +20,9 @@ router.get('/list/tipos/:month', deviceCtrl.listTipos);
 router.get('/stats/location', deviceCtrl.calculateStatsByLocation);
 router.get('/stats/type', deviceCtrl.calculateStatsByType);
 router.get('/stats/area', deviceCtrl.calculateStatsByArea);
-
+router.get('/stats/state', deviceCtrl.getMetricsByState);
+router.get('/stats/servicesByArea', deviceCtrl.getMonthlyServicesByArea);
+router.get('/stats/totalServicesByArea', deviceCtrl.getTotalServicesByArea);
+router.get('/stats/servicesByJefatura', deviceCtrl.getServicesByJefatura);
+router.get('/stats/servicesByIDTecnico', deviceCtrl.getServicesByIDTecnico);
 export default router;

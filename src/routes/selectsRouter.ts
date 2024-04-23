@@ -18,7 +18,7 @@ router.get("/folderID", selectsCtrl.folderID);
 router.get("/databaseID", selectsCtrl.databaseID);
 router.get("/internetID", selectsCtrl.internetID);
 router.get("/earrings", selectsCtrl.earrings);
-router.get("/getRecursos/:tipo_id", selectsCtrl.getRecurzosByType);
+router.get("/getRecursos/:tipo_id/:jerarquia", selectsCtrl.getRecurzosByType);
 router.get('/execute/:cadena', selectsCtrl.executeSP);
 
 

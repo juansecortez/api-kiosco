@@ -48,10 +48,10 @@ const makeRequestCtrl = {
       }
       const resultado = await pool.request().query(consultaSql);
       const resultados = resultado.recordset;
-
+      const sol_id = resultado.recordset[0].sol_id;
       // Si el procedimiento almacenado se ejecutó correctamente y se insertaron datos,
       // enviamos los datos insertados como respuesta al cliente.
-      res.json({ message: "Solicitud radicada correctamente", data: resultados });
+      res.json({ message: "Solicitud radicada correctamente", data: sol_id });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: "Error al ejecutar el procedimiento almacenado." });
@@ -96,7 +96,8 @@ const makeRequestCtrl = {
       }
       const resultado = await pool.request().query(consultaSql);
       const resultados = resultado.recordset;
-      res.json({ message: "Solicitud radicada correctamente", data: resultados });
+      const sol_id = resultado.recordset[0].sol_id;
+      res.json({ message: "Solicitud radicada correctamente", data: sol_id });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al ejecutar el procedimiento almacenado.");
@@ -148,7 +149,8 @@ const makeRequestCtrl = {
       }
       const resultado = await pool.request().query(consultaSql);
       const resultados = resultado.recordset;
-      res.json({ message: "Solicitud radicada correctamente", data: resultados });
+      const sol_id = resultado.recordset[0].sol_id;
+      res.json({ message: "Solicitud radicada correctamente", data:sol_id });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al ejecutar el procedimiento almacenado.");
@@ -196,7 +198,8 @@ const makeRequestCtrl = {
       }
       const resultado = await pool.request().query(consultaSql);
       const resultados = resultado.recordset;
-      res.json({ message: "Solicitud radicada correctamente", data: resultados });
+      const sol_id = resultado.recordset[0].sol_id;
+      res.json({ message: "Solicitud radicada correctamente", data: sol_id });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al ejecutar el procedimiento almacenado.");
@@ -246,7 +249,8 @@ const makeRequestCtrl = {
       }
       const resultado = await pool.request().query(consultaSql);
       const resultados = resultado.recordset;
-      res.json({ message: "Solicitud radicada correctamente", data: resultados });
+      const sol_id = resultado.recordset[0].sol_id;
+      res.json({ message: "Solicitud radicada correctamente", data: sol_id });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al ejecutar el procedimiento almacenado.");
@@ -294,7 +298,8 @@ const makeRequestCtrl = {
       }
       const resultado = await pool.request().query(consultaSql);
       const resultados = resultado.recordset;
-      res.json({ message: "Solicitud radicada correctamente.", data: resultados });
+      const sol_id = resultado.recordset[0].sol_id;
+      res.json({ message: "Solicitud radicada correctamente.", data: sol_id });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al ejecutar el procedimiento almacenado.");
