@@ -64,6 +64,7 @@ app.use("/api/v1/device", routes.deviceRouter);
 
 // Middleware para manejar rutas no encontradas
 app.use((req, res, next) => {
+  console.log('Ruta no encontrada para:', req.path);
   res.status(404).send('Ruta no encontrada');
 });
 
